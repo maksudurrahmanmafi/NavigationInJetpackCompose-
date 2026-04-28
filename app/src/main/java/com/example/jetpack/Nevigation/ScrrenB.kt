@@ -1,9 +1,26 @@
 package com.example.jetpack.Nevigation
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun ScreenB(modifier: Modifier = Modifier) {
-    
+fun ScreenB(onNavigateToScreenA: () -> Unit) { // Callback add kora holo
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(text = "Welcome to Screen B", style = MaterialTheme.typography.headlineMedium)
+        Button(onClick = { onNavigateToScreenA() }) {
+            Text(text = "Go Back to Screen A")
+        }
+    }
 }
